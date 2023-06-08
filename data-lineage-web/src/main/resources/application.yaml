@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+
+knife4j:
+  enable: true
+  openapi:
+    title: 血缘解析
+    description: 血缘解析测试
+    version: 1..0
+    license: Apache 2.0
+    group:
+      test1:
+        group-name: 分组名称
+        api-rule: package
+        api-rule-resources:
+          - com.crazypug.datalineage

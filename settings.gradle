@@ -1,0 +1,6 @@
+
+include 'data-lineage-parser'
+include 'data-lineage-core'
+include 'data-lineage-web'
+include 'data-lineage-store'
+

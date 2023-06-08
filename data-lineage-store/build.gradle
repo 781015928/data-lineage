@@ -1,0 +1,10 @@
+
+
+dependencies {
+
+    implementation 'org.nebula-contrib:ngbatis:1.1.1'
+}
+
+test {
+    useJUnitPlatform()
+}

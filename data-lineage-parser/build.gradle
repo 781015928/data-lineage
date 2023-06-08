@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'com.crazypug.datalineage'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'com.alibaba:druid:1.2.6'
+    testImplementation "com.crazypug.framework:utils-jdbc:0.0.1"
+    testImplementation 'mysql:mysql-connector-java:5.1.48'
+
+    implementation project(':data-lineage-core')
+}
+
+test {
+    useJUnitPlatform()
+}

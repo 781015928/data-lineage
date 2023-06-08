@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+group 'com.crazypug.datalineage'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+
+
+}
+
+test {
+    useJUnitPlatform()
+}

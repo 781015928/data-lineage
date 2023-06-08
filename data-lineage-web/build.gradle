@@ -1,0 +1,23 @@
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.boot:spring-boot-starter-parent:${springBootVersion}"
+    }
+}
+dependencies {
+
+    implementation project(":data-lineage-core")
+    implementation project(":data-lineage-parser")
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation 'mysql:mysql-connector-java:5.1.48'
+    implementation "com.crazypug.framework:utils-jdbc:0.0.1"
+    implementation 'com.github.xiaoymin:knife4j-openapi2-spring-boot-starter:4.1.0'
+
+
+}
+
+test {
+    useJUnitPlatform()
+}

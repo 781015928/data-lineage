@@ -1,0 +1,75 @@
+
+buildscript {
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+
+
+
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenLocal()
+        mavenCentral()
+    }
+
+}
+
+
+allprojects {
+
+    apply plugin: 'java'
+    if (!project.name.endsWith('web')) {
+        apply plugin: "maven-publish"
+    }
+
+
+    group 'com.crazypug.datalineage'
+    version '1.0.0-SNAPSHOT'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+
+    repositories {
+
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenLocal()
+        mavenCentral()
+
+        configurations {
+
+
+            provided
+            all {
+                canBeResolved = true
+                resolutionStrategy {
+                    cacheChangingModulesFor 0, 'seconds'
+                }
+            }
+        }
+
+
+        sourceSets.main.runtimeClasspath += configurations.compileOnly
+        sourceSets.main.compileClasspath += configurations.compileOnly
+
+        sourceSets.test.runtimeClasspath += configurations.compileOnly
+        sourceSets.test.compileClasspath += configurations.compileOnly
+
+        task sourceJar(type: Jar) {
+            from sourceSets.main.allJava
+            classifier "sources"
+        }
+
+        task javadocJar(type: Jar) {
+            from javadoc
+            classifier "javadoc"
+        }
+
+    }
+}
+
+
